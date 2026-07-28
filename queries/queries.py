@@ -9,8 +9,6 @@ from .sql_queries import (
     SURNAME_HISTORY_1_QUERY,
     SURNAME_HISTORY_2_QUERY
 )
-conn = sqlite3.connect("student.db")
-cursor = conn.cursor()
 
 def show_group_rating():
     execute_query(
@@ -53,6 +51,8 @@ def show_surname_history():
     )
 
 def run_queries():
+    conn = sqlite3.connect("student.db")
+    cursor = conn.cursor()
     show_group_rating()
     show_library_debtors()
     show_student_rating()
