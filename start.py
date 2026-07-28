@@ -1,15 +1,19 @@
 import os
+from database.create_db import create_database
+from database.fill_db import fill_database
+from queries.queries import run_queries
+    
 print("Інформаційна система 'Студент'")
 print("Виконання проєкту...")
 
-print("Створення бази даних…")
-os.system("py create_db.py")
+print("\nСтворення бази даних…")
+create_database()
 
 print("\nЗаповнення тестовими даними…")
-os.system("py fill_db.py")
+fill_database()
 
 print("\nВиконання запитів…")
-os.system("py queries.py")
+run_queries()
 
-print("Усі операції виконані успішно.")
+print("\nУсі операції виконані успішно.")
 print("\nРоботу завершенно.")
