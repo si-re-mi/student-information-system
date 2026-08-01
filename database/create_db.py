@@ -1,11 +1,12 @@
 import os
 import sqlite3
+from config.config import DATABASE_NAME
 
 def create_database():
-    if os.path.exists("student.db"):
-        os.remove("student.db")
+    if os.path.exists(DATABASE_NAME):
+        os.remove(DATABASE_NAME)
 
-    conn = sqlite3.connect("student.db")
+    conn = sqlite3.connect(DATABASE_NAME)
     cursor = conn.cursor()
 
     cursor.executescript("""

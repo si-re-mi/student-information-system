@@ -9,6 +9,7 @@ from .sql_queries import (
     SURNAME_HISTORY_1_QUERY,
     SURNAME_HISTORY_2_QUERY
 )
+from config.config import DATABASE_NAME
 
 def show_group_rating():
     execute_query(
@@ -51,13 +52,11 @@ def show_surname_history():
     )
 
 def run_queries():
-    conn = sqlite3.connect("student.db")
-    cursor = conn.cursor()
+    conn = sqlite3.connect(DATABASE_NAME)
     show_group_rating()
     show_library_debtors()
     show_student_rating()
     show_academic_report()
     show_popular_hobbies()
     show_surname_history()
-
     conn.close()
